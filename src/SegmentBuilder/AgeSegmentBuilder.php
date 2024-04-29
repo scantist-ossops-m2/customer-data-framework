@@ -27,8 +27,11 @@ class AgeSegmentBuilder extends AbstractSegmentBuilder
     use LoggerAware;
 
     private $groupName;
+
     private $segmentGroup;
+
     private $ageGroups;
+
     private $birthDayField;
 
     public function __construct($groupName = 'Age', $ageGroups = [], $birthDayField = 'birthDate')
@@ -55,7 +58,6 @@ class AgeSegmentBuilder extends AbstractSegmentBuilder
     /**
      * prepare data and configurations which could be reused for all calculateSegments() calls
      *
-     * @param SegmentManagerInterface $segmentManager
      *
      * @return void
      */
@@ -67,8 +69,6 @@ class AgeSegmentBuilder extends AbstractSegmentBuilder
     /**
      * build segment(s) for given customer
      *
-     * @param CustomerInterface $customer
-     * @param SegmentManagerInterface $segmentManager
      *
      * @return void
      */

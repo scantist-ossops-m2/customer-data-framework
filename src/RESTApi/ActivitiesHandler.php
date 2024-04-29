@@ -36,7 +36,6 @@ class ActivitiesHandler extends AbstractHandler implements CrudHandlerInterface
     /**
      * GET /activities
      *
-     * @param Request $request
      *
      * @return Response
      */
@@ -76,7 +75,6 @@ class ActivitiesHandler extends AbstractHandler implements CrudHandlerInterface
     /**
      * GET /activities/{id}
      *
-     * @param Request $request
      *
      * @return Response
      */
@@ -90,7 +88,6 @@ class ActivitiesHandler extends AbstractHandler implements CrudHandlerInterface
     /**
      * POST /activities
      *
-     * @param Request $request
      *
      * @return Response
      */
@@ -161,7 +158,6 @@ class ActivitiesHandler extends AbstractHandler implements CrudHandlerInterface
      *
      * TODO support partial updates as we do now or demand whole object in PUT? Use PATCH for partial requests?
      *
-     * @param Request $request
      *
      * @return Response
      */
@@ -203,7 +199,6 @@ class ActivitiesHandler extends AbstractHandler implements CrudHandlerInterface
     /**
      * DELETE /{id}
      *
-     * @param Request $request
      *
      * @return Response
      */
@@ -268,7 +263,6 @@ class ActivitiesHandler extends AbstractHandler implements CrudHandlerInterface
     /**
      * Create customer response with hydrated customer data
      *
-     * @param ActivityStoreEntryInterface $activityStoreEntry
      *
      * @return Response
      */
@@ -282,7 +276,6 @@ class ActivitiesHandler extends AbstractHandler implements CrudHandlerInterface
     }
 
     /**
-     * @param ActivityStoreEntryInterface $activityStoreEntry
      *
      * @return array
      */

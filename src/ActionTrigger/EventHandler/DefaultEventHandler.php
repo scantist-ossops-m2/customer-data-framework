@@ -153,7 +153,6 @@ class DefaultEventHandler implements EventHandlerInterface
     }
 
     /**
-     * @param EventInterface $event
      * @param bool $checkConditions
      *
      * @return Rule[]
@@ -163,8 +162,8 @@ class DefaultEventHandler implements EventHandlerInterface
         $appliedRules = [];
 
         if (isset($this->getRulesGroupedByEvents()[$event->getName()]) && sizeof(
-                $this->getRulesGroupedByEvents()[$event->getName()]
-            )
+            $this->getRulesGroupedByEvents()[$event->getName()]
+        )
         ) {
             $rules = $this->rulesGroupedByEvents[$event->getName()];
 

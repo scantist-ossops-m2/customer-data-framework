@@ -34,7 +34,6 @@ class SegmentGroupsHandler extends AbstractHandler implements CrudHandlerInterfa
     /**
      * GET /segment-groups
      *
-     * @param Request $request
      *
      * @return Response
      */
@@ -68,7 +67,6 @@ class SegmentGroupsHandler extends AbstractHandler implements CrudHandlerInterfa
     /**
      * GET /segments/{id}
      *
-     * @param Request $request
      *
      * @return Response
      */
@@ -82,7 +80,6 @@ class SegmentGroupsHandler extends AbstractHandler implements CrudHandlerInterfa
     /**
      * POST /segments
      *
-     * @param Request $request
      *
      * @return Response
      */
@@ -101,9 +98,9 @@ class SegmentGroupsHandler extends AbstractHandler implements CrudHandlerInterfa
         }
 
         if ($data['reference'] && \Pimcore::getContainer()->get('cmf.segment_manager')->getSegmentGroupByReference(
-                $data['reference'],
-                (bool)$data['calculated']
-            )
+            $data['reference'],
+            (bool)$data['calculated']
+        )
         ) {
             return new Response(
                 [
@@ -135,7 +132,6 @@ class SegmentGroupsHandler extends AbstractHandler implements CrudHandlerInterfa
      *
      * TODO support partial updates as we do now or demand whole object in PUT? Use PATCH for partial requests?
      *
-     * @param Request $request
      *
      * @return Response
      */
@@ -177,7 +173,6 @@ class SegmentGroupsHandler extends AbstractHandler implements CrudHandlerInterfa
     /**
      * DELETE /segments/{id}
      *
-     * @param Request $request
      *
      * @return Response
      */
@@ -227,7 +222,6 @@ class SegmentGroupsHandler extends AbstractHandler implements CrudHandlerInterfa
     /**
      * Create customer segment response with hydrated segment data
      *
-     * @param CustomerSegmentGroup $segmentGroup
      *
      * @return Response
      */
@@ -241,7 +235,6 @@ class SegmentGroupsHandler extends AbstractHandler implements CrudHandlerInterfa
     }
 
     /**
-     * @param CustomerSegmentGroup $customerSegmentGroup
      *
      * @return array
      */

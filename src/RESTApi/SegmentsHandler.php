@@ -36,7 +36,6 @@ class SegmentsHandler extends AbstractHandler implements CrudHandlerInterface
     /**
      * GET /segments
      *
-     * @param Request $request
      *
      * @return Response
      */
@@ -70,7 +69,6 @@ class SegmentsHandler extends AbstractHandler implements CrudHandlerInterface
     /**
      * GET /segments/{id}
      *
-     * @param Request $request
      *
      * @return Response
      */
@@ -84,7 +82,6 @@ class SegmentsHandler extends AbstractHandler implements CrudHandlerInterface
     /**
      * POST /segments
      *
-     * @param Request $request
      *
      * @return Response
      */
@@ -122,9 +119,9 @@ class SegmentsHandler extends AbstractHandler implements CrudHandlerInterface
         }
 
         if ($data['reference'] && \Pimcore::getContainer()->get('cmf.segment_manager')->getSegmentByReference(
-                $data['reference'],
-                $segmentGroup
-            )
+            $data['reference'],
+            $segmentGroup
+        )
         ) {
             return new Response(
                 [
@@ -159,7 +156,6 @@ class SegmentsHandler extends AbstractHandler implements CrudHandlerInterface
      *
      * TODO support partial updates as we do now or demand whole object in PUT? Use PATCH for partial requests?
      *
-     * @param Request $request
      *
      * @return Response
      */
@@ -198,7 +194,6 @@ class SegmentsHandler extends AbstractHandler implements CrudHandlerInterface
     /**
      * DELETE /segments/{id}
      *
-     * @param Request $request
      *
      * @return Response
      */
@@ -248,7 +243,6 @@ class SegmentsHandler extends AbstractHandler implements CrudHandlerInterface
     /**
      * Create customer segment response with hydrated segment data
      *
-     * @param CustomerSegmentInterface $segment
      *
      * @return Response
      */
@@ -262,7 +256,6 @@ class SegmentsHandler extends AbstractHandler implements CrudHandlerInterface
     }
 
     /**
-     * @param CustomerSegmentInterface $customerSegment
      *
      * @return array
      */

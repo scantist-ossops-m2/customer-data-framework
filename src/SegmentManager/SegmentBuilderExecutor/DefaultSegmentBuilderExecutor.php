@@ -61,9 +61,6 @@ class DefaultSegmentBuilderExecutor implements SegmentBuilderExecutorInterface
         $this->paginator = $paginator;
     }
 
-    /**
-     * @param CustomerInterface $customer
-     */
     public function buildCalculatedSegmentsOnCustomerSave(CustomerInterface $customer)
     {
         $this->prepareSegmentBuilders($this->segmentManager->getSegmentBuilders(), true);
@@ -236,6 +233,7 @@ class DefaultSegmentBuilderExecutor implements SegmentBuilderExecutorInterface
         $progressCount = max((int)($pageSize / 10), 1);
         $progressTime = time();
         $itemCount = 1;
+
         try {
             for ($pageNumber = $startPage; $pageNumber <= $endPage && $pageNumber <= $totalPages && !$stopFurtherProcessing; $pageNumber++) {
                 $logger->notice(
@@ -349,9 +347,6 @@ class DefaultSegmentBuilderExecutor implements SegmentBuilderExecutorInterface
             ? (int)$options[$option] : null;
     }
 
-    /**
-     * @param CustomerInterface $customer
-     */
     public function addCustomerToChangesQueue(CustomerInterface $customer)
     {
         Db::get()->executeQuery(
@@ -367,10 +362,6 @@ class DefaultSegmentBuilderExecutor implements SegmentBuilderExecutorInterface
         }
     }
 
-    /**
-     * @param CustomerInterface $customer
-     * @param SegmentBuilderInterface $segmentBuilder
-     */
     protected function applySegmentBuilderToCustomer(
         CustomerInterface $customer,
         SegmentBuilderInterface $segmentBuilder

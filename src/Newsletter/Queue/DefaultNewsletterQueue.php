@@ -54,7 +54,6 @@ class DefaultNewsletterQueue implements NewsletterQueueInterface
     }
 
     /**
-     * @param NewsletterAwareCustomerInterface $customer
      * @param string $operation
      * @param string|null $email
      * @param bool $immediateAsyncProcessQueueItem
@@ -87,9 +86,6 @@ class DefaultNewsletterQueue implements NewsletterQueueInterface
         $this->immidateAsyncQueueItems[$customer->getId() . '_' . $operation] = $item;
     }
 
-    /**
-     * @inheritdoc
-     */
     public function executeImmidiateAsyncQueueItems()
     {
         if (!sizeof($this->immidateAsyncQueueItems)) {
@@ -125,8 +121,6 @@ class DefaultNewsletterQueue implements NewsletterQueueInterface
     }
 
     /**
-     * @param array $newsletterProviderHandler
-     * @param NewsletterQueueItemInterface $newsletterQueueItem
      *
      * @return void
      */
@@ -136,7 +130,6 @@ class DefaultNewsletterQueue implements NewsletterQueueInterface
     }
 
     /**
-     * @param NewsletterQueueItemInterface $item
      *
      * @return void
      */
@@ -146,11 +139,11 @@ class DefaultNewsletterQueue implements NewsletterQueueInterface
 
         if (!is_null($item->getEmail())) {
             $db->executeQuery('delete from ' . self::QUEUE_TABLE . ' where customerId = ? and email = ? and operation = ? and modificationDate = ?', [
-                $item->getCustomerId(), $item->getEmail(), $item->getOperation(), $item->getModificationDate()
+                $item->getCustomerId(), $item->getEmail(), $item->getOperation(), $item->getModificationDate(),
             ]);
         } else {
             $db->executeQuery('delete from ' . self::QUEUE_TABLE . ' where customerId = ? and email is null and operation = ? and modificationDate = ?', [
-                $item->getCustomerId(), $item->getOperation(), $item->getModificationDate()
+                $item->getCustomerId(), $item->getOperation(), $item->getModificationDate(),
             ]);
         }
 
@@ -322,6 +315,7 @@ class DefaultNewsletterQueue implements NewsletterQueueInterface
             foreach ($successfullItems as $successfullItem) {
                 if ($successfullItem == $item) {
                     $result[] = $item;
+
                     break;
                 }
             }
@@ -347,7 +341,6 @@ class DefaultNewsletterQueue implements NewsletterQueueInterface
     }
 
     /**
-     * @param array $data
      *
      * @return NewsletterQueueItemInterface|false
      */

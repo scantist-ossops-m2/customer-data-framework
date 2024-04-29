@@ -39,9 +39,6 @@ class CustomersHandler extends AbstractHandler implements CrudHandlerInterface
      */
     protected $customerProvider;
 
-    /**
-     * @param CustomerProviderInterface $customerProvider
-     */
     public function __construct(PaginatorInterface $paginator, CustomerProviderInterface $customerProvider)
     {
         parent::__construct($paginator);
@@ -51,7 +48,6 @@ class CustomersHandler extends AbstractHandler implements CrudHandlerInterface
     /**
      * GET /customers
      *
-     * @param Request $request
      *
      * @return Response
      */
@@ -100,7 +96,6 @@ class CustomersHandler extends AbstractHandler implements CrudHandlerInterface
     /**
      * GET /customers/{id}
      *
-     * @param Request $request
      *
      * @return Response
      */
@@ -114,7 +109,6 @@ class CustomersHandler extends AbstractHandler implements CrudHandlerInterface
     /**
      * POST /customers
      *
-     * @param Request $request
      *
      * @return Response
      */
@@ -140,7 +134,6 @@ class CustomersHandler extends AbstractHandler implements CrudHandlerInterface
      *
      * TODO support partial updates as we do now or demand whole object in PUT? Use PATCH for partial requests?
      *
-     * @param Request $request
      *
      * @return Response
      */
@@ -162,7 +155,6 @@ class CustomersHandler extends AbstractHandler implements CrudHandlerInterface
     /**
      * DELETE /customers/{id}
      *
-     * @param Request $request
      *
      * @return Response
      */
@@ -212,9 +204,6 @@ class CustomersHandler extends AbstractHandler implements CrudHandlerInterface
     /**
      * Create customer response with hydrated customer data
      *
-     * @param CustomerInterface $customer
-     * @param Request $request
-     * @param ExportCustomersFilterParams|null $params
      *
      * @return Response
      */
@@ -235,8 +224,6 @@ class CustomersHandler extends AbstractHandler implements CrudHandlerInterface
     }
 
     /**
-     * @param CustomerInterface $customer
-     * @param ExportCustomersFilterParams $params
      *
      * @return array
      */
