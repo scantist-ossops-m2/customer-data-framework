@@ -16,7 +16,6 @@
 namespace CustomerManagementFrameworkBundle\Listing\Filter;
 
 use Doctrine\DBAL\Query\QueryBuilder;
-use Pimcore\Db;
 use Pimcore\Model\DataObject\Listing as CoreListing;
 
 abstract class AbstractFieldBetween extends AbstractFilter implements OnCreateQueryFilterInterface
@@ -122,7 +121,7 @@ abstract class AbstractFieldBetween extends AbstractFilter implements OnCreateQu
             $operator = $this->getOperator(static::TYPE_TO);
             $whereCondition[] = sprintf('`%s`.`%s` %s %s', $tableName, $this->field, $operator, $listing->quote($to));
         }
-        if ($whereCondition){
+        if ($whereCondition) {
             $whereSql = implode(' AND ', $whereCondition);
         }
 
